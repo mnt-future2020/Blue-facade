@@ -24,6 +24,8 @@ export default function BannersPage() {
     { key: "about", label: "About Us" },
     { key: "services", label: "Services" },
     { key: "portfolio", label: "Portfolio" },
+    { key: "blog", label: "Blog" },
+    { key: "careers", label: "Careers" },
     { key: "contact", label: "Contact" },
   ];
 
@@ -31,11 +33,11 @@ export default function BannersPage() {
   const [status, setStatus] = useState<string>("active");
   const [imageUrl, setImageUrl] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
-  
+
   // For home page - multiple images
   const [homeImages, setHomeImages] = useState<string[]>([]);
   const [homeFiles, setHomeFiles] = useState<(File | null)[]>([null, null, null]);
-  
+
   const [loading, setLoading] = useState<boolean>(false);
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -59,7 +61,7 @@ export default function BannersPage() {
         };
         setImageUrl(b.image || "");
         setStatus(b.status || "active");
-        
+
         // For home page, load multiple images and ensure we have 3 slots
         if (key === "home" && b.images && b.images.length > 0) {
           const paddedImages = [...b.images];
@@ -161,11 +163,11 @@ export default function BannersPage() {
         const existingImagesOnly = homeImages.filter(
           (img) => img && !img.startsWith("blob:")
         );
-        
+
         if (existingImagesOnly.length > 0) {
           form.append("existingImages", JSON.stringify(existingImagesOnly));
         }
-        
+
         // Send new files
         homeFiles.forEach((file, index) => {
           if (file) {
@@ -366,7 +368,7 @@ export default function BannersPage() {
                       />
                     </div>
                   ))}
-                  
+
                   {/* 
                     Commented out - Additional image slots not needed
                     

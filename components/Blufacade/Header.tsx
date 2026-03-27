@@ -1,13 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, Instagram, Linkedin, Facebook, Twitter, Youtube, MessageCircle, Send } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useServices } from "@/hooks/use-services"
 import { usePortfolio } from "@/hooks/use-portfolio"
+import { useContact } from "@/hooks/use-contact"
+import { siteConfig } from "@/config/site"
 
 const navItems = [
   { label: "HOME", href: "/" },
@@ -25,9 +27,48 @@ export function Header() {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
   const [portfolioDropdownOpen, setPortfolioDropdownOpen] = useState(false)
   const pathname = usePathname()
-  
+
   const { services } = useServices(1, 100)
   const { portfolios } = usePortfolio(1, 100)
+  const { contactInfo } = useContact()
+
+  const mobileSocialLinks = [
+    {
+      label: "Instagram",
+      href: contactInfo?.instagram || siteConfig.social.instagram,
+      icon: <Instagram className="w-5 h-5" />,
+    },
+    {
+      label: "LinkedIn",
+      href: contactInfo?.linkedin || siteConfig.social.linkedin,
+      icon: <Linkedin className="w-5 h-5" />,
+    },
+    {
+      label: "Facebook",
+      href: contactInfo?.facebook || siteConfig.social.facebook,
+      icon: <Facebook className="w-5 h-5" />,
+    },
+    {
+      label: "Twitter",
+      href: contactInfo?.twitter,
+      icon: <Twitter className="w-5 h-5" />,
+    },
+    {
+      label: "YouTube",
+      href: contactInfo?.youtube,
+      icon: <Youtube className="w-5 h-5" />,
+    },
+    {
+      label: "WhatsApp",
+      href: contactInfo?.whatsapp,
+      icon: <MessageCircle className="w-5 h-5" />,
+    },
+    {
+      label: "Telegram",
+      href: contactInfo?.telegram,
+      icon: <Send className="w-5 h-5" />,
+    },
+  ].filter((s) => Boolean(s.href))
 
   // Check if we're on the home page
   const isHomePage = pathname === "/"
@@ -55,11 +96,10 @@ export function Header() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? "bg-white/95 backdrop-blur-md shadow-lg" 
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+          }`}
       >
         <div className="mx-auto pl-2 md:pl-4 pr-6 md:pr-12 flex items-center justify-between h-20">
           <motion.div
@@ -92,13 +132,12 @@ export function Header() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`p-2 rounded-lg transition-colors px-3 py-2.5 md:hidden ${
-                scrolled 
-                  ? "bg-[#014a74] text-white" 
-                  : isHomePage 
-                    ? "bg-[#014a74] text-white border border-[#014a74]"
-                    : "bg-white/20 backdrop-blur-sm text-white border border-white/30"
-              }`}
+              className={`p-2 rounded-lg transition-colors px-3 py-2.5 md:hidden ${scrolled
+                ? "bg-[#014a74] text-white"
+                : isHomePage
+                  ? "bg-[#014a74] text-white border border-[#014a74]"
+                  : "bg-white/20 backdrop-blur-sm text-white border border-white/30"
+                }`}
               aria-label="Menu"
             >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,17 +148,16 @@ export function Header() {
               {navItems.map((item) => {
                 if (item.label === "SERVICES") {
                   return (
-                    <div 
-                      key={item.label} 
+                    <div
+                      key={item.label}
                       className="relative group"
                       onMouseEnter={() => setServicesDropdownOpen(true)}
                       onMouseLeave={() => setServicesDropdownOpen(false)}
                     >
                       <Link
                         href={item.href}
-                        className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#f58420] ${
-                          scrolled ? "text-[#014a74]" : isHomePage ? "text-[#014a74]" : "text-white"
-                        }`}
+                        className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#f58420] ${scrolled ? "text-[#014a74]" : isHomePage ? "text-[#014a74]" : "text-white"
+                          }`}
                       >
                         {item.label}
                         <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -152,18 +190,17 @@ export function Header() {
                 }
 
                 if (item.label === "PORTFOLIO") {
-                   return (
-                    <div 
-                      key={item.label} 
+                  return (
+                    <div
+                      key={item.label}
                       className="relative group"
                       onMouseEnter={() => setPortfolioDropdownOpen(true)}
                       onMouseLeave={() => setPortfolioDropdownOpen(false)}
                     >
                       <Link
                         href={item.href}
-                        className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#f58420] ${
-                          scrolled ? "text-[#014a74]" : isHomePage ? "text-[#014a74]" : "text-white"
-                        }`}
+                        className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#f58420] ${scrolled ? "text-[#014a74]" : isHomePage ? "text-[#014a74]" : "text-white"
+                          }`}
                       >
                         {item.label}
                         <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -199,9 +236,8 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#f58420] ${
-                      scrolled ? "text-[#014a74]" : isHomePage ? "text-[#014a74]" : "text-white"
-                    }`}
+                    className={`text-sm font-bold uppercase tracking-wider transition-colors hover:text-[#f58420] ${scrolled ? "text-[#014a74]" : isHomePage ? "text-[#014a74]" : "text-white"
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -261,16 +297,21 @@ export function Header() {
                   open: { opacity: 1, y: 0 },
                   closed: { opacity: 0, y: 20 },
                 }}
-                className="mt-12 flex justify-center gap-6"
+                className="mt-12 flex justify-center gap-4"
               >
-                {["INSTAGRAM", "LINKEDIN", "FACEBOOK"].map((social) => (
+                {mobileSocialLinks.map((social) => (
                   <motion.a
-                    key={social}
-                    whileHover={{ scale: 1.1, color: "#f58420" }}
-                    href="#"
-                    className="text-sm font-bold text-white/60 hover:text-[#f58420] transition-colors"
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setMenuOpen(false)}
+                    className="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white/70 hover:text-[#f58420] hover:border-[#f58420] transition-colors"
                   >
-                    {social}
+                    {social.icon}
                   </motion.a>
                 ))}
               </motion.div>

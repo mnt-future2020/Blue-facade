@@ -311,8 +311,8 @@ export function TestimonialsSection() {
           </div>
         ) : (
           <div className="flex flex-col gap-6 relative w-full overflow-hidden">
-            <HorizontalMarquee items={firstCol} duration={35} />
-            <HorizontalMarquee items={secondCol} reverse={true} duration={40} />
+            <HorizontalMarquee items={firstCol} duration={45} />
+            <HorizontalMarquee items={secondCol} reverse={true} duration={50} />
           </div>
         )}
       </div>

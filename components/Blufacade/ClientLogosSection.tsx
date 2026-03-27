@@ -29,8 +29,8 @@ export function ClientLogosSection() {
     return null;
   }
 
-  // Duplicate logos for seamless loop
-  const duplicatedLogos = [...clientLogos, ...clientLogos];
+  // Duplicate logos multiple times for seamless loop on mobile
+  const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
     <section className="py-20 bg-white overflow-hidden">
@@ -59,9 +59,9 @@ export function ClientLogosSection() {
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={`${logo._id}-${index}`}
-                className="marquee-item shrink-0 mx-8"
+                className="marquee-item shrink-0 mx-4 md:mx-8"
               >
-                <div className="relative w-52 h-20 transition-all duration-300 hover:scale-105">
+                <div className="relative w-32 h-16 md:w-52 md:h-20 transition-all duration-300 hover:scale-105">
                   <Image
                     src={logo.logo}
                     alt={logo.name}
@@ -86,6 +86,7 @@ export function ClientLogosSection() {
           align-items: center;
           animation: logos-marquee 30s linear infinite;
           will-change: transform;
+          width: max-content;
         }
 
         .marquee-content:hover {
@@ -97,13 +98,19 @@ export function ClientLogosSection() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
 
         @media (max-width: 768px) {
           .marquee-content {
-            animation-duration: 20s;
+            animation-duration: 18s;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .marquee-content {
+            animation-duration: 15s;
           }
         }
       `}</style>
