@@ -21,7 +21,8 @@ RewriteEngine On
 RewriteRule ^_next/static/(.*)$ .next/static/$1 [L]
 
 # Serve public files directly
-
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
 
 # Proxy all other requests to Next.js server
 RewriteRule ^(.*)$ http://127.0.0.1:%{ENV:PORT}/$1 [P,L]
