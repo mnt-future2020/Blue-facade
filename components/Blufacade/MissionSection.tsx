@@ -112,7 +112,7 @@ export function MissionSection() {
           >
             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10">
               <img
-                src="images/our_mission/our_mission.jpg"
+                src="images/our_mission/our_mission.jpeg"
                 alt="Mission"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
               />
