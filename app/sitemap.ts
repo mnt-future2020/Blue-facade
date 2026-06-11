@@ -23,8 +23,6 @@ const staticRoutes: Array<{
   { path: "/services", changeFrequency: "weekly", priority: 0.9 },
   { path: "/portfolio", changeFrequency: "weekly", priority: 0.9 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/support-model", changeFrequency: "monthly", priority: 0.6 },
-  { path: "/ndis", changeFrequency: "monthly", priority: 0.6 },
   { path: "/careers", changeFrequency: "weekly", priority: 0.6 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.7 },
   { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },

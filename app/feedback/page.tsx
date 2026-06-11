@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "We value your feedback! Share your compliments, suggestions, or concerns about our NDIS support services. Your input helps us improve and deliver better care.",
   keywords:
     "feedback, customer feedback, service feedback, NDIS feedback, compliments, suggestions, concerns",
+  alternates: {
+    canonical: "/feedback",
+  },
 };
 
 export default function FeedbackPage() {

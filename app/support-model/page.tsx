@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "Discover our person-centered support models designed to empower individuals with disabilities to achieve their goals.",
   keywords:
     "NDIS support model, person-centered care, disability support, empowerment, collaborative support",
+  alternates: {
+    canonical: "/support-model",
+  },
 };
 
 export default function SupportModelPage() {

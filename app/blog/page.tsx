@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Blog | Blufacade - Facade Industry Insights & News",
   description: "Stay updated with the latest facade design trends, construction tips, industry news, and case studies from Blufacade experts.",
   keywords: "facade blog, construction news, design trends, building facade, ACP cladding, architectural insights",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

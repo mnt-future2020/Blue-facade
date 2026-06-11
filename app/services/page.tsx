@@ -9,6 +9,9 @@ import { ServicesGrid } from "@/components/Blufacade/pages/ServicesGrid"
 export const metadata: Metadata = {
   title: "Our Services | Blufacade - Facade Solutions",
   description: "Explore our comprehensive facade services including ACP cladding, structural glazing, aluminium doors & windows, HPL, DGU systems, canopy work, glass partitions, and spider glazing.",
+  alternates: {
+    canonical: "/services",
+  },
 }
 
 export default function ServicesPage() {

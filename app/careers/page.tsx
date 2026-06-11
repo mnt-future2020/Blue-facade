@@ -7,6 +7,9 @@ import { CareersContent } from "@/components/Blufacade/pages/CareersContent"
 export const metadata: Metadata = {
   title: "Careers | Blufacade - Join Our Team",
   description: "Explore career opportunities at Blufacade. Join our team of facade engineering experts and work on iconic projects across India.",
+  alternates: {
+    canonical: "/careers",
+  },
 }
 
 export default function CareersPage() {
