@@ -6,7 +6,7 @@ export const siteConfig = {
   
   contact: {
     phone: "9994162996",
-    email: "blufacadein@gmail.com",
+    email: "enquiry@blufacade.com",
     address: "#35/39, S5, Avyaya Apartments, East Tambaram, Chennai - 600059",
   },
   

@@ -53,7 +53,7 @@ export async function GET() {
           id: "contact",
           pageName: "Contact Us",
           title: "Contact Blufacade - Get Expert Facade Solutions Today",
-          description: "Contact Blufacade for premium facade construction services in Chennai, Madurai, and Dindigul. Call 9994162996 or email blufacadein@gmail.com for consultation.",
+          description: "Contact Blufacade for premium facade construction services in Chennai, Madurai, and Dindigul. Call 9994162996 or email enquiry@blufacade.com for consultation.",
           keywords: "contact blufacade, facade inquiry, Chennai facade contractor, facade consultation, building exterior services, ACP cladding quote, glazing services Chennai",
           lastUpdated: new Date(),
           isActive: true,

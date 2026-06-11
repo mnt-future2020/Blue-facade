@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
         primaryPhone: "+91 9994162996",
         secondaryPhone: "",
         whatsappNumber: "+91 9994162996",
-        email: "blufacadein@gmail.com",
+        email: "enquiry@blufacade.com",
         address: "#35/39, S5, Avyaya Apartments, East Tambaram",
         city: "Chennai",
         state: "Tamil Nadu",
