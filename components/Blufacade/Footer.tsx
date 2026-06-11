@@ -118,11 +118,11 @@ export function Footer() {
                 <span className="text-sm">{contactInfo?.primaryPhone || '9994162996'}</span>
               </a>
               <a
-                href={`mailto:${contactInfo?.email || 'blufacadein@gmail.com'}`}
+                href={`mailto:${contactInfo?.email || 'enquiry@blufacade.com'}`}
                 className="flex items-center gap-3 text-white/80 hover:text-[#f58420] transition-colors"
               >
                 <Mail className="w-5 h-5 shrink-0" />
-                <span className="text-sm">{contactInfo?.email || 'blufacadein@gmail.com'}</span>
+                <span className="text-sm">{contactInfo?.email || 'enquiry@blufacade.com'}</span>
               </a>
             </div>
           </div>

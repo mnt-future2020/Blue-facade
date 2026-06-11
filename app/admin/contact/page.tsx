@@ -252,7 +252,7 @@ export default function ContactPage() {
                 type="email"
                 value={contactInfo.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                placeholder="blufacadein@gmail.com"
+                placeholder="enquiry@blufacade.com"
                 className="mt-2"
               />
             </div>
