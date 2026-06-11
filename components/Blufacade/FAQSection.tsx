@@ -345,9 +345,9 @@ export function FAQSection() {
         <header className="flex flex-col gap-8">
           <div className="space-y-4">
             <p className={`text-[10px] uppercase tracking-[0.35em] ${palette.muted}`}>Questions</p>
-            <h1 className={`text-3xl font-semibold leading-tight md:text-4xl ${palette.heading}`}>
+            <h2 className={`text-3xl font-semibold leading-tight md:text-4xl ${palette.heading}`}>
               Everything you need to know about our facade solutions.
-            </h1>
+            </h2>
             <p className={`max-w-xl text-sm ${palette.muted}`}>
               Get answers to common questions about partnering with Blufacade for your architectural glass and facade
               projects.

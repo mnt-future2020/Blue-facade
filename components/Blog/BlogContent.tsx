@@ -41,9 +41,9 @@ export default function BlogContent() {
             <span className="text-xs md:text-sm font-bold tracking-widest text-[#f58420] uppercase">
               Our Blog
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6">
               Insights & Updates
-            </h1>
+            </h2>
             <p className="text-lg md:text-xl text-white/80">
               Stay informed with the latest trends, tips, and news from the facade industry
             </p>

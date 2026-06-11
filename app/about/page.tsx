@@ -9,6 +9,9 @@ import { AboutContent } from "@/components/Blufacade/pages/AboutContent"
 export const metadata: Metadata = {
   title: "About Us | Blufacade - Inspiring Skylines",
   description: "Learn about Blufacade - your trusted partner for innovative facade solutions. With 15+ years of experience, we transform architectural visions into iconic realities.",
+  alternates: {
+    canonical: "/about",
+  },
 }
 
 export default function AboutPage() {

@@ -64,9 +64,9 @@ export function CareersContent() {
             <span className="inline-block px-4 py-1 rounded-full bg-[#f58420]/10 text-[#f58420] text-sm font-medium mb-4">
               Careers
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#014a74] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#014a74] mb-6">
               {careersInfo?.pageTitle || "Join Our Team"}
-            </h1>
+            </h2>
             <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
               {careersInfo?.pageDescription || "Be part of a dynamic team that's transforming skylines across India."}
             </p>

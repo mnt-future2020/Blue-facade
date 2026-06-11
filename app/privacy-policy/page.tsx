@@ -1,8 +1,16 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Blufacade/Header";
 import { Footer } from "@/components/Blufacade/Footer";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Blufacade",
+  description:
+    "Read Blufacade's privacy policy to understand how we collect, use, and protect your personal information.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+};
 
 export default function PrivacyPolicy() {
   return (

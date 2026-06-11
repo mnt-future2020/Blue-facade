@@ -4,6 +4,16 @@ import { PageBanner } from "@/components/page-banner"
 import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Our Team | Blufacade",
+  description:
+    "Meet the Blufacade team — experienced professionals dedicated to delivering innovative, high-quality facade solutions.",
+  alternates: {
+    canonical: "/about/team",
+  },
+}
 
 const teamMembers = [
   {

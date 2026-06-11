@@ -8,6 +8,9 @@ import { ContactContent } from "@/components/Blufacade/pages/ContactContent"
 export const metadata: Metadata = {
   title: "Contact Us | Blufacade - Get in Touch",
   description: "Contact Blufacade for your facade project inquiries. Visit our office in Chennai or reach out to our branches in Madurai and Dindigul.",
+  alternates: {
+    canonical: "/contact",
+  },
 }
 
 export default function ContactPage() {

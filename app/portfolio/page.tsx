@@ -9,6 +9,9 @@ import { PortfolioGrid } from "@/components/Blufacade/pages/PortfolioGrid"
 export const metadata: Metadata = {
   title: "Portfolio | Blufacade - Our Projects",
   description: "Explore our portfolio of iconic facade projects. From commercial complexes to healthcare facilities, see how we transform buildings with innovative facade solutions.",
+  alternates: {
+    canonical: "/portfolio",
+  },
 }
 
 export default function PortfolioPage() {

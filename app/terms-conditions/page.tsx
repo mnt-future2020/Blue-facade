@@ -1,8 +1,16 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Blufacade/Header";
 import { Footer } from "@/components/Blufacade/Footer";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | Blufacade",
+  description:
+    "Review the terms and conditions for using the Blufacade website and services.",
+  alternates: {
+    canonical: "/terms-conditions",
+  },
+};
 
 export default function TermsConditions() {
   return (
