@@ -1,6 +1,7 @@
 "use client";
 
-import { CircularGallery, GalleryItem } from "@/components/circular-gallery-2";
+import dynamic from "next/dynamic";
+import type { GalleryItem } from "@/components/circular-gallery-2";
 import { usePortfolio } from "@/hooks/use-portfolio";
 import { Loader2, ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -8,18 +9,28 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
 
+// Heavy WebGL gallery — load only in the browser, and only mount it on
+// desktop (see the isDesktop gate below) so mobile/tablet users never
+// download or run this code.
+const CircularGallery = dynamic(
+  () => import("@/components/circular-gallery-2").then((m) => m.CircularGallery),
+  { ssr: false },
+);
+
 export function PortfolioSection() {
   const { portfolios, isLoading } = usePortfolio(1, 12);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
+    const checkScreen = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsDesktop(window.innerWidth >= 1024);
     };
-    
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
   // Fallback hardcoded projects
@@ -126,21 +137,24 @@ export function PortfolioSection() {
         </div>
       ) : (
         <>
-          {/* Desktop Only: WebGL Circular Gallery (1024px+) */}
-          <div className="hidden lg:block h-[800px] w-full">
-            <CircularGallery
-              items={galleryItems}
-              bend={3}
-              borderRadius={0.05}
-              scrollSpeed={2}
-              scrollEase={0.05}
-              className="text-[#014a74] font-bold"
-              fontClassName="font-bold text-[35px]"
-              itemWidth={1000}
-              itemHeight={700}
-              onItemClick={handleProjectClick}
-            />
-          </div>
+          {/* Desktop Only: WebGL Circular Gallery (1024px+) — mounted only on
+              desktop so the heavy WebGL bundle never loads on mobile/tablet */}
+          {isDesktop && (
+            <div className="hidden lg:block h-[800px] w-full">
+              <CircularGallery
+                items={galleryItems}
+                bend={3}
+                borderRadius={0.05}
+                scrollSpeed={2}
+                scrollEase={0.05}
+                className="text-[#014a74] font-bold"
+                fontClassName="font-bold text-[35px]"
+                itemWidth={1000}
+                itemHeight={700}
+                onItemClick={handleProjectClick}
+              />
+            </div>
+          )}
 
           {/* Tablet Only: 2 Column Grid (768px-1023px) */}
           <div className="hidden md:block lg:hidden py-12 px-6">
